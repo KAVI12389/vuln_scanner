@@ -1,4 +1,0 @@
-requests
-pyOpenSSL
-beautifulsoup4
-pyfiglet

@@ -1,27 +1,27 @@
 
 === Open Directory Listings ===
-[+] No open directory listing
+[!!] Directory Listing Enabled at http://testphp.vulnweb.com/images/ | Open Files/Folders: logo.gif, remark.gif
 
 === Security Headers ===
-[!] Missing Headers: Content-Security-Policy, X-Frame-Options, X-Content-Type-Options, X-Frame-Options, X-XSS-Protection, Referrer-Policy
+[!] Missing Headers: Content-Security-Policy, X-Frame-Options, X-Content-Type-Options, X-Frame-Options, X-XSS-Protection, Referrer-Policy, Strict-Transport-Security
 
 === HTTP Methods ===
 [+] Safe Methods Only: 
 
 === Sensitive Files ===
-[!] Sensitive files exposed: robots.txt
+[+] No sensitive files found
 
 === XSS & SQL Injection ===
 [+] No basic XSS/SQL injection detected
 
 === SSL/TLS Check ===
-[+] SSL Certificate Valid: ((('commonName', '*.peg.a2z.com'),),)
+[ERROR] SSL Check Failed: timed out
 
 === Subdomain Enumeration ===
 [+] No subdomains discovered
 
 === Crawler ===
 [+] Found 3 links:
-/ref=cs_503_logo
-/dogsofamazon/ref=cs_503_d
-/ref=cs_503_link
+remark.gif
+logo.gif
+../
