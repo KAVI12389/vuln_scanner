@@ -1,0 +1,27 @@
+
+=== Open Directory Listings ===
+[+] No open directory listing
+
+=== Security Headers ===
+[!] Missing Headers: Content-Security-Policy, X-Frame-Options, X-Content-Type-Options, X-Frame-Options, X-XSS-Protection, Referrer-Policy
+
+=== HTTP Methods ===
+[+] Safe Methods Only: 
+
+=== Sensitive Files ===
+[!] Sensitive files exposed: robots.txt
+
+=== XSS & SQL Injection ===
+[+] No basic XSS/SQL injection detected
+
+=== SSL/TLS Check ===
+[+] SSL Certificate Valid: ((('commonName', '*.peg.a2z.com'),),)
+
+=== Subdomain Enumeration ===
+[+] No subdomains discovered
+
+=== Crawler ===
+[+] Found 3 links:
+/ref=cs_503_logo
+/dogsofamazon/ref=cs_503_d
+/ref=cs_503_link
