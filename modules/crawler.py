@@ -7,4 +7,4 @@ def check(url):
         links = list(set(links))
         return f"[+] Found {len(links)} links:\n" + "\n".join(links[:20])
     except Exception as e:
-        return f"[ERROR] {e}"
+        return f"[ERROR]  {e}"
