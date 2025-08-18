@@ -2,20 +2,26 @@ import requests
 
 def check(url):
     base = url.replace("http://", "").replace("https://", "").split("/")[0]
-    found = []
+    found = set()  # avoid duplicates
+
     try:
         with open("wordlists/subdomains.txt") as f:
-            for sub in f:
-                sub = sub.strip()
-                target = f"http://{sub}.{base}"
-                try:
-                    resp = requests.get(target, timeout=3)
-                    if resp.status_code < 400:
-                        found.append(target)
-                except:
-                    continue
+            subs = [s.strip() for s in f if s.strip()]
     except FileNotFoundError:
         return "[ERROR] wordlists/subdomains.txt missing"
+
+    for sub in subs:
+        target_domain = f"{sub}.{base}"
+        for scheme in ["http://", "https://"]:
+            target = f"{scheme}{target_domain}"
+            try:
+                resp = requests.get(target, timeout=3, headers={"User-Agent": "AdvancedScanner/1.0"})
+                if resp.status_code < 400:
+                    found.add(target)
+            except requests.RequestException:
+                continue
+
     if found:
-        return "[!] Subdomains found:\n" + "\n".join(found)
+        return "[!] Subdomains found:\n - " + "\n - ".join(sorted(found))
     return "[+] No subdomains discovered"
+
