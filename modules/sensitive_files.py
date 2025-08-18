@@ -1,15 +1,33 @@
 import requests
 
 def check(url):
-    common_files = ["robots.txt", ".env", ".git/config", "backup.zip"]
+    common_files = [
+        "robots.txt", ".env", ".git/config", ".git/HEAD", ".svn/entries",
+        "backup.zip", "db.sql", "config.php", "wp-config.php", "adminer.php",
+        "phpinfo.php", "composer.json", "composer.lock", "package.json",
+        "yarn.lock", ".htaccess", ".DS_Store"
+    ]
+
     found = []
-    for f in common_files:
-        try:
-            resp = requests.get(url.rstrip("/") + "/" + f, timeout=5)
-            if resp.status_code == 200 and len(resp.text) > 0:
-                found.append(f)
-        except:
-            continue
-    if found:
-        return f"[!] Sensitive files exposed: {', '.join(found)}"
-    return "[+] No sensitive files found"
+    base = url.rstrip("/")
+
+    try:
+        for f in common_files:
+            target = f"{base}/{f}"
+            try:
+                resp = requests.get(target, timeout=5, headers={"User-Agent": "AdvancedScanner/1.0"})
+                if resp.status_code == 200:
+                    content_type = resp.headers.get("Content-Type", "")
+                    # Filter: must not be empty or generic
+                    if len(resp.text.strip()) > 0 and "text/html" not in content_type.lower():
+                        found.append(target)
+            except requests.RequestException:
+                continue
+
+        if found:
+            return "[!] Sensitive files exposed:\n - " + "\n - ".join(found)
+        return "[+] No sensitive files found"
+
+    except Exception as e:
+        return f"[ERROR] {e}"
+
