@@ -21,25 +21,13 @@ A simple Python-based Web Application Vulnerability Scanner to detect common mis
 
 ✅ Crawl Internal Links for recursive testing
 
-✅ Generates a report (reports/output.txt)
+run the tool
 
-Installation
-
-git clone https://github.com/your-username/vuln-scanner.git
-cd vuln-scanner
-
-Install dependencies:
-
-pip install -r requirements.txt
-
-Usage
-Run the tool:
-
-python main.py
+# python main.py
 
 Enter the target URL when prompted:
 
-Enter target URL: http://testphp.vulnweb.com/
+# Enter target URL: http://testphp.vulnweb.com/
 
 Select a scanning option from the menu:
 
@@ -60,6 +48,8 @@ reports/output.txt
 
 Project Structure:
 
+
+
 vuln_scanner/
 │── main.py                # Main script with menu & report
 │── modules/
@@ -77,9 +67,11 @@ vuln_scanner/
 │── README.md
 
 
+
+
 📦 Requirements
 
-Python 3.x
+# Python 3.x
 
 Install from requirements.txt:
 
