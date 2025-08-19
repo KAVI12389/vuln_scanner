@@ -60,6 +60,9 @@ reports/output.txt
 
 Project Structure:
 
+
+
+
 vuln_scanner/
 │── main.py                # Main script with menu & report
 │── modules/
@@ -77,9 +80,11 @@ vuln_scanner/
 │── README.md
 
 
+
+
 📦 Requirements
 
-Python 3.x
+# Python 3.x
 
 Install from requirements.txt:
 
