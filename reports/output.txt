@@ -1,0 +1,79 @@
+
+=== Open Directory Listings ===
+[ERROR] Timeout while connecting to http://myntra.com/
+
+=== Security Headers ===
+[!] Missing Security Headers:
+ - Content-Security-Policy (Prevents XSS and data injection attacks)
+ - Referrer-Policy (Controls how much referrer info leaks)
+ - Permissions-Policy (Restricts powerful browser APIs (camera, mic, etc.))
+[+] Present Headers: X-Frame-Options, X-Content-Type-Options, X-XSS-Protection, Strict-Transport-Security
+
+=== HTTP Methods ===
+[+] Safe Methods Only: GET, HEAD
+
+=== Sensitive Files ===
+[!] Sensitive files exposed:
+ - http://myntra.com/robots.txt
+
+=== XSS & SQL Injection ===
+[+] No basic XSS/SQL Injection detected
+
+=== SSL/TLS Check ===
+[!] Target does not use HTTPS
+
+=== Subdomain Enumeration ===
+[+] No subdomains discovered
+
+=== Crawler ===
+[+] Found 511 links (showing up to 50):
+http://myntra.com/
+http://myntra.com/shop/men
+http://myntra.com/men-topwear
+http://myntra.com/men-tshirts
+http://myntra.com/men-casual-shirts
+http://myntra.com/men-formal-shirts
+http://myntra.com/men-sweatshirts
+http://myntra.com/men-sweaters
+http://myntra.com/men-jackets
+http://myntra.com/men-blazers
+http://myntra.com/men-suits
+http://myntra.com/rain-jacket
+http://myntra.com/men-ethnic-wear
+http://myntra.com/men-kurtas
+http://myntra.com/sherwani
+http://myntra.com/nehru-jackets
+http://myntra.com/dhoti
+http://myntra.com/men-bottomwear
+http://myntra.com/men-jeans
+http://myntra.com/men-casual-trousers
+http://myntra.com/men-formal-trousers
+http://myntra.com/mens-shorts
+http://myntra.com/men-trackpants
+http://myntra.com/men-innerwear
+http://myntra.com/men-briefs-and-trunks
+http://myntra.com/men-boxers
+http://myntra.com/men-innerwear-vests
+http://myntra.com/men-nightwear
+http://myntra.com/men-thermals
+http://myntra.com/plus-size-for-men
+http://myntra.com/men-footwear
+http://myntra.com/men-casual-shoes
+http://myntra.com/men-sports-shoes
+http://myntra.com/men-formal-shoes
+http://myntra.com/men-sneakers
+http://myntra.com/men-sandals
+http://myntra.com/men-flip-flops
+http://myntra.com/men-socks
+http://myntra.com/men-personal-care
+http://myntra.com/men-sunglasses
+http://myntra.com/mens-watches
+http://myntra.com/men-sports-wear
+http://myntra.com/men-sports-sandals
+http://myntra.com/men-sports-wear-tshirts
+http://myntra.com/men-trackpants-shorts
+http://myntra.com/men-tracksuits
+http://myntra.com/men-sports-jackets
+http://myntra.com/men-sports-accessories
+http://myntra.com/men-swimwear
+http://myntra.com/gadgets

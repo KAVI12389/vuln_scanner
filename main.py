@@ -19,9 +19,8 @@ def banner():
   
         🚀 Advanced Web Vulnerability Scanner 🚀
         ----------------------------------------
-                 Developed by: KAVI
+                 Developed by: KAVIYARASU.C
     """)
-
 def write_report(title, result):
     with open(REPORT_FILE, "a") as f:
         f.write(f"\n=== {title} ===\n{result}\n")
