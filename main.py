@@ -19,7 +19,7 @@ def banner():
   
         🚀 Advanced Web Vulnerability Scanner 🚀
         ----------------------------------------
-                 Developed by: KAVI
+                 Developed by: KAVIYARASU.C
     """)
 
 def write_report(title, result):
@@ -106,3 +106,4 @@ if __name__ == "__main__":
             sys.exit()
         else:
             print("Invalid option, try again!")
+
