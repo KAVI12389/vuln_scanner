@@ -5,7 +5,7 @@ def check(url):
         resp = requests.get(url, timeout=10, headers={"User-Agent": "AdvancedScanner/1.0"})
         headers = resp.headers
 
-        # Recommended Security Headers (OWASP)
+        # Recommended Security Headers (OWASP Top)
         required = {
             "Content-Security-Policy": "Prevents XSS and data injection attacks",
             "X-Frame-Options": "Protects against Clickjacking",
@@ -35,3 +35,5 @@ def check(url):
 
     except Exception as e:
         return f"[ERROR] {e}"
+
+

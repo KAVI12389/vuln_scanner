@@ -22,9 +22,8 @@ def banner():
                  Developed by: KAVIYARASU.C
     """)
 def write_report(title, result):
-    with open(REPORT_FILE, "a") as f:
+    with open(REPORT_FILE, "a", encoding="utf-8") as f:
         f.write(f"\n=== {title} ===\n{result}\n")
-
 
 def menu():
     print("""

@@ -1,36 +1,65 @@
 
 === Open Directory Listings ===
-[ERROR] HTTP error 400 at https://amazon.com/images/
+[*] Target: https://myntra.com/
+[+] HTTP 200 → Page fetched successfully
+[+] No obvious directory listing keywords found
+[+] No autoindex-like structure detected
+[!!] Extracted 477 files/folders: https://myntra.com/shop/men, https://myntra.com/men-topwear, https://myntra.com/men-tshirts, https://myntra.com/men-casual-shirts, https://myntra.com/men-formal-shirts, https://myntra.com/men-sweatshirts, https://myntra.com/men-sweaters, https://myntra.com/men-jackets, https://myntra.com/men-blazers, https://myntra.com/men-suits ...
+[RESULT] ❌ No open directory listing at https://myntra.com/
 
 === Security Headers ===
 [!] Missing Security Headers:
  - Content-Security-Policy (Prevents XSS and data injection attacks)
- - X-Frame-Options (Protects against Clickjacking)
- - X-XSS-Protection (Basic XSS filter (legacy browsers))
  - Referrer-Policy (Controls how much referrer info leaks)
- - Strict-Transport-Security (Forces HTTPS connections)
  - Permissions-Policy (Restricts powerful browser APIs (camera, mic, etc.))
-[+] Present Headers: X-Content-Type-Options
+[+] Present Headers: X-Frame-Options, X-Content-Type-Options, X-XSS-Protection, Strict-Transport-Security
 
 === HTTP Methods ===
-[OK] No HTTP methods detected
+[+] Safe Methods Only: GET, HEAD
 
 === Sensitive Files ===
-[+] No sensitive files found
+=== Sensitive Files ===
+[!!] Found: https://myntra.com/robots.txt (200, text/plain, 22047 bytes)
+[!!] Found: https://myntra.com/.env (200, text/html; charset=utf-8, 539104 bytes)
+[!!] Found: https://myntra.com/backup.zip (200, text/html; charset=utf-8, 601715 bytes)
+[!!] Found: https://myntra.com/db.sql (200, text/html; charset=utf-8, 685714 bytes)
+[!!] Found: https://myntra.com/database.sql (200, text/html; charset=utf-8, 683548 bytes)
+[!!] Found: https://myntra.com/dump.sql (200, text/html; charset=utf-8, 825172 bytes)
+[!!] Found: https://myntra.com/config.php (200, text/html; charset=utf-8, 409662 bytes)
+[!!] Found: https://myntra.com/wp-config.php (200, text/html; charset=utf-8, 805490 bytes)
+[!!] Found: https://myntra.com/adminer.php (200, text/html; charset=utf-8, 667906 bytes)
+[!!] Found: https://myntra.com/phpinfo.php (200, text/html; charset=utf-8, 920272 bytes)
+[!!] Found: https://myntra.com/composer.json (200, text/html; charset=utf-8, 733686 bytes)
+[!!] Found: https://myntra.com/composer.lock (200, text/html; charset=utf-8, 679535 bytes)
+[!!] Found: https://myntra.com/package.json (200, text/html; charset=utf-8, 611736 bytes)
+[!!] Found: https://myntra.com/yarn.lock (200, text/html; charset=utf-8, 702245 bytes)
+[!!] Found: https://myntra.com/.htaccess (403, text/html, 379 bytes)
+[!!] Found: https://myntra.com/.DS_Store (200, text/html; charset=utf-8, 1195907 bytes)
+[!!] Found: https://myntra.com/id_rsa (200, text/html; charset=utf-8, 409568 bytes)
+[!!] Found: https://myntra.com/id_rsa.pub (200, text/html; charset=utf-8, 1033335 bytes)
+[!!] Found: https://myntra.com/credentials.json (200, text/html; charset=utf-8, 661143 bytes)
+[!!] Found: https://myntra.com/web.config (200, text/html; charset=utf-8, 409492 bytes)
+[!!] Found: https://myntra.com/local.settings.json (200, text/html; charset=utf-8, 404361 bytes)
+[!!] Found: https://myntra.com/db_backup.sql (200, text/html; charset=utf-8, 409529 bytes)
+[!!] Found: https://myntra.com/error.log (200, text/html; charset=utf-8, 751426 bytes)
+[!!] Found: https://myntra.com/access.log (200, text/html; charset=utf-8, 536084 bytes)
+[!!] Found: https://myntra.com/debug.log (200, text/html; charset=utf-8, 779743 bytes)
+[!!] Found: https://myntra.com/old.zip (200, text/html; charset=utf-8, 424744 bytes)
+[!!] Found: https://myntra.com/backup.old (200, text/html; charset=utf-8, 771168 bytes)
+[!!] Found: https://myntra.com/site.bak (200, text/html; charset=utf-8, 825189 bytes)
+[!!] Found: https://myntra.com/index.bak (200, text/html; charset=utf-8, 531609 bytes)
+[!!] Found: https://myntra.com/test.php (200, text/html; charset=utf-8, 466234 bytes)
+
+=== XSS & SQLi Testing ===
+[+] No XSS/SQL Injection detected
 
 === XSS & SQL Injection ===
-[+] No basic XSS/SQL Injection detected
+[+] No XSS/SQL Injection detected
 
 === SSL/TLS Check ===
-[+] TLS Certificate Info for amazon.com
- - Issued To: *.peg.a2z.com
- - Issued By: DigiCert Global CA G2
- - Valid From: 2025-06-26 00:00:00
- - Valid Until: 2026-06-19 23:59:59
- - Days Left: 304
-
-=== Subdomain Enumeration ===
-[+] No subdomains discovered
-
-=== Crawler ===
-[OK] No internal links found
+[+] TLS Certificate Info for myntra.com
+ - Issued To: *.myntra.com
+ - Issued By: GlobalSign ECC OV SSL CA 2018
+ - Valid From: 2024-11-20 08:21:06
+ - Valid Until: 2025-12-22 08:21:05
+ - Days Left: 123
