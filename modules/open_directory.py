@@ -1,87 +1,76 @@
-import requests, re, os
+# modules/open_directory.py
+import requests
 from bs4 import BeautifulSoup
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlparse
 
-WORDLIST = "wordlist.txt"
+def check(url, max_depth=2):
+    """
+    Advanced Open Directory Listing Detector
+    - Works on big websites (timeout 20s)
+    - Recursive scan up to max_depth
+    - Returns full line-by-line report
+    """
+    scanned = set()
+    report = []
 
-def check(url):
-    analysis = []
-    try:
-        resp = requests.get(url, timeout=10, headers={"User-Agent": "DirScanner/1.0"})
-        status = resp.status_code
-        size = len(resp.content)
+    # Browser headers
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
+                      'AppleWebKit/537.36 (KHTML, like Gecko) '
+                      'Chrome/114.0.0.0 Safari/537.36'
+    }
 
-        # Base info
-        analysis.append(f"[+] {status} | {size} bytes | {url}")
+    # Auto HTTPS if not specified
+    if not url.startswith("http"):
+        url = "https://" + url
 
-        content = resp.text.lower()
-        soup = BeautifulSoup(resp.text, "html.parser")
+    def scan_directory(current_url, depth):
+        if depth > max_depth or current_url in scanned:
+            return
+        scanned.add(current_url)
 
-        indicators = ["index of", "parent directory", "last modified", 
-                      "directory listing", "nginx autoindex", "apache server at"]
-        found = [w for w in indicators if w in content]
+        try:
+            if not current_url.endswith("/"):
+                current_url += "/"
 
-        if found:
-            links = []
-            for a in soup.find_all("a", href=True):
-                href = a["href"]
-                if href in ["../", "/", "#"]:
-                    continue
-                abs_url = urljoin(url, href)
-                links.append(abs_url)
+            resp = requests.get(current_url, headers=headers, timeout=20, allow_redirects=True)
+            resp.raise_for_status()
+            content = resp.text.lower()
 
-            links = list(dict.fromkeys(links))
-            if links:
-                preview = ", ".join(links[:10])
-                if len(links) > 10:
-                    preview += " ..."
-                analysis.append(f"[!!] Open Directory Listing at {url}")
-                analysis.append(f"     Files/Folders ({len(links)}): {preview}")
+            indicators = ["index of", "parent directory", "last modified", "directory listing"]
+            if any(word in content for word in indicators):
+                report.append(f"[!!] Open Directory Listing at {current_url}")
+                soup = BeautifulSoup(resp.text, "html.parser")
+                links = [urljoin(current_url, a["href"]) for a in soup.find_all("a", href=True)]
+                files, folders = [], []
+
+                for link in links:
+                    parsed = urlparse(link)
+                    if link.endswith("/"):
+                        folders.append(link)
+                    else:
+                        files.append(link)
+
+                if files:
+                    report.append(f"Files ({len(files)}):")
+                    for f in files:
+                        report.append(f"  • {f}")
+
+                if folders:
+                    report.append(f"Subfolders ({len(folders)}):")
+                    for f in folders:
+                        report.append(f"  • {f}")
+
+                # Recursive scan
+                for f in folders:
+                    scan_directory(f, depth + 1)
             else:
-                analysis.append(f"[!!] Suspicious signature found at {url} (No links extracted)")
+                report.append(f"[?] {current_url} → 200 OK but no directory listing")
 
-        return analysis
+        except requests.exceptions.RequestException as e:
+            report.append(f"[ERROR] Request failed for {current_url}: {e}")
+        except Exception as e:
+            report.append(f"[ERROR] Unexpected error at {current_url}: {e}")
 
-    except Exception as e:
-        return [f"[ERROR] {url} -> {str(e)}"]
-
-
-def scan_target(base_url, recursive=False, depth=2):
-    results = []
-    visited = set()
-
-    if not base_url.endswith("/"):
-        base_url += "/"
-
-    if not os.path.exists(WORDLIST):
-        return [f"[ERROR] Wordlist {WORDLIST} not found!"]
-
-    with open(WORDLIST, "r") as f:
-        dirs = [line.strip() for line in f if line.strip() and not line.startswith("#")]
-
-    for d in dirs:
-        target = urljoin(base_url, d + "/")
-        if target in visited:
-            continue
-        visited.add(target)
-
-        # Collect results
-        result = check(target)
-        results.extend(result)
-
-        # Recursive scanning
-        if recursive and depth > 1:
-            inner = scan_target(target, recursive=True, depth=depth-1)
-            results.extend(inner)
-
-    return results
-
-
-if __name__ == "__main__":
-    base = "http://testphp.vulnweb.com/"
-    final_results = scan_target(base, recursive=True, depth=2)
-
-    print("\n=== Final Analysis Report ===\n")
-    for line in final_results:
-        print(line)     
-
+    scan_directory(url, 0)
+    return "\n".join(report) if report else f"No open directories found at {url}"
