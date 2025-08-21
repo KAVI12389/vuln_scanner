@@ -66,7 +66,7 @@ def scan_target(base_url, recursive=False, depth=2):
         visited.add(target)
 
         # Collect results
-        result = check_directory(target)
+        result = check(target)
         results.extend(result)
 
         # Recursive scanning

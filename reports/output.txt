@@ -1,49 +1,23 @@
 
 === Open Directory Listings ===
-['[+] 200 | 475581 bytes | http://myntra.com']
+['[+] 200 | 5070 bytes | http://amazon.com']
 
 === Security Headers ===
 [!] Missing Security Headers:
  - Content-Security-Policy (Prevents XSS and data injection attacks)
+ - X-Frame-Options (Protects against Clickjacking)
+ - X-Content-Type-Options (Prevents MIME-sniffing)
+ - X-XSS-Protection (Basic XSS filter (legacy browsers))
  - Referrer-Policy (Controls how much referrer info leaks)
  - Permissions-Policy (Restricts powerful browser APIs (camera, mic, etc.))
-[+] Present Headers: X-Frame-Options, X-Content-Type-Options, X-XSS-Protection, Strict-Transport-Security
+[+] Present Headers: Strict-Transport-Security
 
 === HTTP Methods ===
-[+] Safe Methods Only: GET, HEAD
+[OK] No HTTP methods detected
 
 === Sensitive Files ===
 === Sensitive Files ===
-[!!] Found: http://myntra.com/robots.txt (200, text/plain, 22047 bytes)
-[!!] Found: http://myntra.com/.env (200, text/html; charset=utf-8, 539203 bytes)
-[!!] Found: http://myntra.com/backup.zip (200, text/html; charset=utf-8, 601716 bytes)
-[!!] Found: http://myntra.com/db.sql (200, text/html; charset=utf-8, 684875 bytes)
-[!!] Found: http://myntra.com/database.sql (200, text/html; charset=utf-8, 682788 bytes)
-[!!] Found: http://myntra.com/dump.sql (200, text/html; charset=utf-8, 838702 bytes)
-[!!] Found: http://myntra.com/config.php (200, text/html; charset=utf-8, 409714 bytes)
-[!!] Found: http://myntra.com/wp-config.php (200, text/html; charset=utf-8, 806673 bytes)
-[!!] Found: http://myntra.com/adminer.php (200, text/html; charset=utf-8, 484444 bytes)
-[!!] Found: http://myntra.com/phpinfo.php (200, text/html; charset=utf-8, 922341 bytes)
-[!!] Found: http://myntra.com/composer.json (200, text/html; charset=utf-8, 728292 bytes)
-[!!] Found: http://myntra.com/composer.lock (200, text/html; charset=utf-8, 680228 bytes)
-[!!] Found: http://myntra.com/package.json (200, text/html; charset=utf-8, 611780 bytes)
-[!!] Found: http://myntra.com/yarn.lock (200, text/html; charset=utf-8, 703675 bytes)
-[!!] Found: http://myntra.com/.htaccess (403, text/html, 379 bytes)
-[!!] Found: http://myntra.com/.DS_Store (200, text/html; charset=utf-8, 1208038 bytes)
-[!!] Found: http://myntra.com/id_rsa (200, text/html; charset=utf-8, 409605 bytes)
-[!!] Found: http://myntra.com/id_rsa.pub (200, text/html; charset=utf-8, 1039151 bytes)
-[!!] Found: http://myntra.com/credentials.json (200, text/html; charset=utf-8, 661503 bytes)
-[!!] Found: http://myntra.com/web.config (200, text/html; charset=utf-8, 409530 bytes)
-[!!] Found: http://myntra.com/local.settings.json (200, text/html; charset=utf-8, 404397 bytes)
-[!!] Found: http://myntra.com/db_backup.sql (200, text/html; charset=utf-8, 409564 bytes)
-[!!] Found: http://myntra.com/error.log (200, text/html; charset=utf-8, 751747 bytes)
-[!!] Found: http://myntra.com/access.log (200, text/html; charset=utf-8, 536504 bytes)
-[!!] Found: http://myntra.com/debug.log (200, text/html; charset=utf-8, 789220 bytes)
-[!!] Found: http://myntra.com/old.zip (200, text/html; charset=utf-8, 424745 bytes)
-[!!] Found: http://myntra.com/backup.old (200, text/html; charset=utf-8, 766933 bytes)
-[!!] Found: http://myntra.com/site.bak (200, text/html; charset=utf-8, 838716 bytes)
-[!!] Found: http://myntra.com/index.bak (200, text/html; charset=utf-8, 532194 bytes)
-[!!] Found: http://myntra.com/test.php (200, text/html; charset=utf-8, 464959 bytes)
+[!!] Found: http://amazon.com/robots.txt (200, text/plain, 4751 bytes)
 
 === XSS & SQLi Testing ===
 [+] No XSS/SQL Injection detected
