@@ -83,5 +83,5 @@ if __name__ == "__main__":
 
     print("\n=== Final Analysis Report ===\n")
     for line in final_results:
-        print(line)
+        print(line)     
 

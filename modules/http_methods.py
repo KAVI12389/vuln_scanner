@@ -1,6 +1,6 @@
 import requests
 
-def check(url):
+def check(url, max_depth=2, max_links=50):
     insecure = []
     try:
         resp = requests.options(url, timeout=10, headers={"User-Agent": "AdvancedScanner/1.0"})
