@@ -4,7 +4,7 @@ from urllib.parse import urljoin
 
 WORDLIST = "wordlist.txt"
 
-def check_directory(url):
+def check(url):
     analysis = []
     try:
         resp = requests.get(url, timeout=10, headers={"User-Agent": "DirScanner/1.0"})
