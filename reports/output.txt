@@ -1,23 +1,49 @@
 
 === Open Directory Listings ===
-['[+] 200 | 5070 bytes | http://amazon.com']
+['[+] 200 | 475580 bytes | http://myntra.com']
 
 === Security Headers ===
 [!] Missing Security Headers:
  - Content-Security-Policy (Prevents XSS and data injection attacks)
- - X-Frame-Options (Protects against Clickjacking)
- - X-Content-Type-Options (Prevents MIME-sniffing)
- - X-XSS-Protection (Basic XSS filter (legacy browsers))
  - Referrer-Policy (Controls how much referrer info leaks)
  - Permissions-Policy (Restricts powerful browser APIs (camera, mic, etc.))
-[+] Present Headers: Strict-Transport-Security
+[+] Present Headers: X-Frame-Options, X-Content-Type-Options, X-XSS-Protection, Strict-Transport-Security
 
 === HTTP Methods ===
-[OK] No HTTP methods detected
+[+] Safe Methods Only: GET, HEAD
 
 === Sensitive Files ===
 === Sensitive Files ===
-[!!] Found: http://amazon.com/robots.txt (200, text/plain, 4751 bytes)
+[!!] Found: http://myntra.com/robots.txt (200, text/plain, 22047 bytes)
+[!!] Found: http://myntra.com/.env (200, text/html; charset=utf-8, 539508 bytes)
+[!!] Found: http://myntra.com/backup.zip (200, text/html; charset=utf-8, 601716 bytes)
+[!!] Found: http://myntra.com/db.sql (200, text/html; charset=utf-8, 679232 bytes)
+[!!] Found: http://myntra.com/database.sql (200, text/html; charset=utf-8, 682773 bytes)
+[!!] Found: http://myntra.com/dump.sql (200, text/html; charset=utf-8, 842401 bytes)
+[!!] Found: http://myntra.com/config.php (200, text/html; charset=utf-8, 409698 bytes)
+[!!] Found: http://myntra.com/wp-config.php (200, text/html; charset=utf-8, 809211 bytes)
+[!!] Found: http://myntra.com/adminer.php (200, text/html; charset=utf-8, 484286 bytes)
+[!!] Found: http://myntra.com/phpinfo.php (200, text/html; charset=utf-8, 923657 bytes)
+[!!] Found: http://myntra.com/composer.json (200, text/html; charset=utf-8, 728303 bytes)
+[!!] Found: http://myntra.com/composer.lock (200, text/html; charset=utf-8, 680211 bytes)
+[!!] Found: http://myntra.com/package.json (200, text/html; charset=utf-8, 611780 bytes)
+[!!] Found: http://myntra.com/yarn.lock (200, text/html; charset=utf-8, 703675 bytes)
+[!!] Found: http://myntra.com/.htaccess (403, text/html, 379 bytes)
+[!!] Found: http://myntra.com/.DS_Store (200, text/html; charset=utf-8, 1208034 bytes)
+[!!] Found: http://myntra.com/id_rsa (200, text/html; charset=utf-8, 409620 bytes)
+[!!] Found: http://myntra.com/id_rsa.pub (200, text/html; charset=utf-8, 1039424 bytes)
+[!!] Found: http://myntra.com/credentials.json (200, text/html; charset=utf-8, 661519 bytes)
+[!!] Found: http://myntra.com/web.config (200, text/html; charset=utf-8, 409544 bytes)
+[!!] Found: http://myntra.com/local.settings.json (200, text/html; charset=utf-8, 404397 bytes)
+[!!] Found: http://myntra.com/db_backup.sql (200, text/html; charset=utf-8, 409566 bytes)
+[!!] Found: http://myntra.com/error.log (200, text/html; charset=utf-8, 751442 bytes)
+[!!] Found: http://myntra.com/access.log (200, text/html; charset=utf-8, 536490 bytes)
+[!!] Found: http://myntra.com/debug.log (200, text/html; charset=utf-8, 789591 bytes)
+[!!] Found: http://myntra.com/old.zip (200, text/html; charset=utf-8, 424745 bytes)
+[!!] Found: http://myntra.com/backup.old (200, text/html; charset=utf-8, 766932 bytes)
+[!!] Found: http://myntra.com/site.bak (200, text/html; charset=utf-8, 658778 bytes)
+[!!] Found: http://myntra.com/index.bak (200, text/html; charset=utf-8, 531825 bytes)
+[!!] Found: http://myntra.com/test.php (200, text/html; charset=utf-8, 463251 bytes)
 
 === XSS & SQLi Testing ===
 [+] No XSS/SQL Injection detected
@@ -27,3 +53,65 @@
 
 === SSL/TLS Check ===
 [!] Target does not use HTTPS
+
+=== Subdomain Enumeration ===
+[+] Subdomain Enumeration for myntra.com
+============================================================
+  • api.myntra.com (dns+http, IP: 23.210.77.16, HTTP: 404)
+  • blog.myntra.com (dns+http, IP: 23.210.77.16, HTTP: 200)
+  • cdn.myntra.com (dns+http, IP: 23.210.77.16, HTTP: 200)
+  • mail.myntra.com (dns+http, IP: 142.251.221.115, HTTP: 200)
+  • www.myntra.com (dns+http, IP: 23.210.77.16, HTTP: 200)
+
+=== Crawler ===
+[+] Found 511 links (showing up to 50):
+http://myntra.com/
+http://myntra.com/shop/men
+http://myntra.com/men-topwear
+http://myntra.com/men-tshirts
+http://myntra.com/men-casual-shirts
+http://myntra.com/men-formal-shirts
+http://myntra.com/men-sweatshirts
+http://myntra.com/men-sweaters
+http://myntra.com/men-jackets
+http://myntra.com/men-blazers
+http://myntra.com/men-suits
+http://myntra.com/rain-jacket
+http://myntra.com/men-ethnic-wear
+http://myntra.com/men-kurtas
+http://myntra.com/sherwani
+http://myntra.com/nehru-jackets
+http://myntra.com/dhoti
+http://myntra.com/men-bottomwear
+http://myntra.com/men-jeans
+http://myntra.com/men-casual-trousers
+http://myntra.com/men-formal-trousers
+http://myntra.com/mens-shorts
+http://myntra.com/men-trackpants
+http://myntra.com/men-innerwear
+http://myntra.com/men-briefs-and-trunks
+http://myntra.com/men-boxers
+http://myntra.com/men-innerwear-vests
+http://myntra.com/men-nightwear
+http://myntra.com/men-thermals
+http://myntra.com/plus-size-for-men
+http://myntra.com/men-footwear
+http://myntra.com/men-casual-shoes
+http://myntra.com/men-sports-shoes
+http://myntra.com/men-formal-shoes
+http://myntra.com/men-sneakers
+http://myntra.com/men-sandals
+http://myntra.com/men-flip-flops
+http://myntra.com/men-socks
+http://myntra.com/men-personal-care
+http://myntra.com/men-sunglasses
+http://myntra.com/mens-watches
+http://myntra.com/men-sports-wear
+http://myntra.com/men-sports-sandals
+http://myntra.com/men-sports-wear-tshirts
+http://myntra.com/men-trackpants-shorts
+http://myntra.com/men-tracksuits
+http://myntra.com/men-sports-jackets
+http://myntra.com/men-sports-accessories
+http://myntra.com/men-swimwear
+http://myntra.com/gadgets
