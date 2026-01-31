@@ -1,3 +1,0 @@
-
-=== Open Directory Listings ===
-[?] http://amazon.com/ → 200 OK but no directory listing
